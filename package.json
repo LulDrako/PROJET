@@ -1,0 +1,13 @@
+{
+  "name": "gestionnaire-taches",
+  "version": "1.0.0",
+  "description": "Application de gestion de tâches en TypeScript",
+  "scripts": {
+    "build": "tsc",
+    "dev": "npx http-server && tsc --watch"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^5.0.0"
+  }
+}

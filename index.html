@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Tâches</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestionnaire de Tâches</h1>
+        </header>
+
+        <!-- Section de statistiques -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card" data-status="all">
+                    <span class="stat-number" id="total-tasks">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-card" data-status="à faire">
+                    <span class="stat-number" id="todo-tasks">0</span>
+                    <span class="stat-label">À faire</span>
+                </div>
+                <div class="stat-card" data-status="en cours">
+                    <span class="stat-number" id="in-progress-tasks">0</span>
+                    <span class="stat-label">En cours</span>
+                </div>
+                <div class="stat-card" data-status="terminée">
+                    <span class="stat-number" id="completed-tasks">0</span>
+                    <span class="stat-label">Terminées</span>
+                </div>
+                <div class="stat-card" data-status="bloquée">
+                    <span class="stat-number" id="blocked-tasks">0</span>
+                    <span class="stat-label">Bloquées</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Rechercher par titre ou description...">
+                    <button id="clear-search" class="btn-secondary">Effacer</button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-status="all">Toutes</button>
+                    <button class="filter-btn" data-status="à faire">À faire</button>
+                    <button class="filter-btn" data-status="en cours">En cours</button>
+                    <button class="filter-btn" data-status="terminée">Terminées</button>
+                    <button class="filter-btn" data-status="bloquée">Bloquées</button>
+                </div>
+                <div class="sort-container">
+                    <label for="sort-select">Trier par :</label>
+                    <select id="sort-select">
+                        <option value="date-desc">Date (récent)</option>
+                        <option value="date-asc">Date (ancien)</option>
+                        <option value="title-asc">Titre (A-Z)</option>
+                        <option value="title-desc">Titre (Z-A)</option>
+                        <option value="priority-desc">Priorité (haute)</option>
+                        <option value="priority-asc">Priorité (basse)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="tasks-section">
+            <div class="tasks-container">
+                <div id="tasks-list" class="tasks-list">
+                </div>
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📝</div>
+                    <h3>Aucune tâche trouvée</h3>
+                    <p>Commencez par ajouter votre première tâche !</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="form-container">
+                <h2 id="form-title">Ajouter une nouvelle tâche</h2>
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Titre *</label>
+                        <input type="text" id="task-title" required>
+                        <span class="error-message" id="title-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-status">Statut *</label>
+                            <select id="task-status" required>
+                                <option value="à faire">À faire</option>
+                                <option value="en cours">En cours</option>
+                                <option value="terminée">Terminée</option>
+                                <option value="bloquée">Bloquée</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-priority">Priorité</label>
+                            <select id="task-priority">
+                                <option value="basse">Basse</option>
+                                <option value="moyenne">Moyenne</option>
+                                <option value="haute">Haute</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="submit-btn">Ajouter</button>
+                        <button type="button" class="btn-secondary" id="cancel-btn" style="display: none;">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h3>Confirmer la suppression</h3>
+            <p>Êtes-vous sûr de vouloir supprimer cette tâche ?</p>
+            <div class="modal-actions">
+                <button id="confirm-delete" class="btn-danger">Supprimer</button>
+                <button id="cancel-delete" class="btn-secondary">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
