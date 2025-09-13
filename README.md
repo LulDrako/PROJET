@@ -1,4 +1,4 @@
-# 📋 Gestionnaire de Tâches - Harouna Kane
+# 📋 Gestionnaire de Tâches
 
 
 ## 🛠️ Installation & Lancement
