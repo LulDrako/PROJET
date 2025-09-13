@@ -1,8 +1,21 @@
 # 📋 Gestionnaire de Tâches - Harouna Kane
 
-## 🚀 Guide Rapide
 
-**1. Ouvrir** `index.html` → **2. Utiliser** l'app !
+## 🛠️ Installation & Lancement
+
+1. Installez les dépendances :
+	```bash
+	npm install
+	```
+2. Démarrez le serveur de développement (obligatoire avant d'utiliser l'app) :
+	```bash
+	npm run dev
+	```
+	Cette commande lance le serveur web local **et** la compilation TypeScript en mode surveillance.
+
+## 🚀 Utilisation
+
+Une fois `npm run dev` lancé, ouvrez votre navigateur à l'adresse indiquée par le terminal (par défaut http://localhost:8080) pour accéder à l'application.
 
 - **➕ Ajouter** : Formulaire → "Ajouter"
 - **✏️ Modifier** : Bouton "Modifier" sur carte
@@ -18,11 +31,3 @@
 - 🟠 **En cours** : Orange
 - 🟢 **Terminée** : Vert
 - 🔴 **Bloquée** : Rouge
-
-## 🛠️ Installation
-
-```bash
-# Installer et démarrer
-npm install
-npm run dev
-```
